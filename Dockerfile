@@ -4,7 +4,9 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-EXPOSE 80
+RUN pip install --no-cache-dir -r requirements.txt
+
+EXPOSE 5000
 
 CMD ["python", "./hello_world.py"]
 
