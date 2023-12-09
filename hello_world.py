@@ -1,4 +1,9 @@
-def print_hello_world_banner():
+from flask import Flask, render_template_string
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
     banner = """
     *****************************************
     *                                       *
@@ -6,10 +11,8 @@ def print_hello_world_banner():
     *                                       *
     *****************************************
     """
-    print(banner)
+    assignment_message = "\nThis is MapUp Assignment 2."
+    return render_template_string(f"{banner}{assignment_message}")
 
-# Calling the function print_hello_world_banner to print the banner
-print_hello_world_banner()
-
-# printing  MapUp Assignment 2 
-print("\nThis is MapUp Assignment 2.")
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=5000)
